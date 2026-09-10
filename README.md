@@ -1,180 +1,124 @@
-# 🔎 Consultador de CNPJ Prieto
+# Consultador de CNPJ Prieto
 
-Aplicativo desktop desenvolvido em **Python** para consulta e organização de dados cadastrais de empresas brasileiras.
+Aplicativo desktop para Windows desenvolvido em Python para consulta de dados cadastrais de empresas brasileiras.
 
-**📦 Versão atual: v2.0.2**
+**Versão atual: v2.0.2**
 
-> ⚠️ **Este repositório possui finalidade exclusivamente demonstrativa.**
->
-> O código-fonte completo, o executável, o instalador e o sistema de distribuição de atualizações permanecem privados.
+> Este repositório é apenas demonstrativo.  
+> O código-fonte completo, o executável, o instalador e a estrutura usada para distribuir atualizações ficam em repositório privado.
 
 ![Tela principal do Consultador de CNPJ](docs/tela-principal.png)
 
----
+## Sobre o projeto
 
-## 📖 Sobre o projeto
+Comecei este projeto com a ideia de criar uma consulta simples de CNPJ usando uma interface desktop.
 
-O **Consultador de CNPJ Prieto** é um projeto desenvolvido para fins de **estudo, aprendizado e portfólio**, com o objetivo de colocar em prática conceitos de desenvolvimento de software desktop em Python.
+Conforme fui desenvolvendo, fui adicionando outras partes que achei interessantes para estudar na prática, como validação de dados, exportação em PDF e TXT, empacotamento para Windows, instalador e, mais recentemente, um launcher próprio para controle de versões e atualizações.
 
-A aplicação realiza consultas de informações públicas de empresas brasileiras por meio da **API Pública CNPJ.ws**, organizando os dados em uma interface desktop moderna e permitindo a exportação das informações para outros formatos.
+Os dados cadastrais são consultados através da **API Pública CNPJ.ws**.
 
-O projeto começou como um consultador simples e foi evoluindo com novas funcionalidades, incluindo validações, geração de documentos, empacotamento para Windows, instalador próprio e um **launcher para gerenciamento de versões e atualizações**.
+## O que o programa faz
 
----
+- consulta empresas por CNPJ;
+- valida o CNPJ antes da consulta;
+- aplica máscara durante a digitação;
+- exibe razão social, nome fantasia e endereço;
+- mostra situação cadastral do CNPJ;
+- exibe informações de Inscrição Estadual quando disponíveis;
+- permite copiar campos individualmente ou todos os dados de uma vez;
+- exporta os dados para TXT;
+- gera relatório em PDF;
+- faz as requisições sem travar a interface;
+- não mantém histórico permanente das consultas.
 
-## ✨ Principais funcionalidades
+## Aplicação para Windows
 
-- 🔎 Consulta de empresas por CNPJ
-- ✔️ Validação matemática do CNPJ
-- ⌨️ Máscara automática durante a digitação
-- 📋 Consulta de Inscrição Estadual
-- 🏢 Razão Social e Nome Fantasia
-- 📍 Endereço completo
-- 📮 CEP
-- 🏙️ Cidade e Estado
-- 📧 E-mail
-- 📅 Data de abertura
-- 🟢 Exibição da situação cadastral do CNPJ
-- 🧾 Exibição de informações da Inscrição Estadual
-- 📄 Exportação dos dados para TXT
-- 📑 Geração de relatório em PDF
-- 📋 Cópia individual de informações
-- 📋 Cópia completa dos dados
-- 🌙 Interface desktop em tema escuro
-- ⚡ Requisições em segundo plano para manter a interface responsiva
-- 🛡️ Tratamento de erros e validações
-- 💻 Executável para Windows
-- 📦 Instalador personalizado
-- 🚀 Launcher próprio para inicialização
-- 🔄 Verificação de novas versões
-- 📥 Download e instalação de atualizações
-- 🔐 Validação de integridade das atualizações com SHA-256
-- 📦 Distribuição de versões através de repositório privado
-- 🔒 Sem armazenamento permanente do histórico de consultas
+Além da parte da consulta, também trabalhei na distribuição do programa para Windows.
 
----
+O projeto possui:
 
-## 🔄 Launcher e sistema de atualizações
-
-Além da aplicação principal, o projeto possui um **launcher próprio**, responsável pela inicialização do sistema e pelo gerenciamento das atualizações.
-
-O launcher identifica a versão instalada, verifica se existe uma nova versão disponível e permite realizar o processo de atualização sem que o usuário precise substituir os arquivos manualmente.
-
-Antes da instalação, o arquivo baixado passa por uma **verificação de integridade utilizando SHA-256**. As versões destinadas à atualização são distribuídas de forma privada.
-
-![Launcher e sistema de atualizações](docs/launcher.png)
-
-> Por segurança, detalhes de autenticação, credenciais e infraestrutura privada de distribuição não são disponibilizados neste repositório público.
-
----
-
-## 🛠 Tecnologias e ferramentas
-
-- **Python** — desenvolvimento da aplicação
-- **CustomTkinter** — interface gráfica
-- **Requests** — comunicação com a API
-- **Pillow** — manipulação de imagens e elementos visuais
-- **ReportLab** — geração de relatórios em PDF
-- **PyInstaller** — geração dos executáveis para Windows
-- **Inno Setup** — criação do instalador
-- **GitHub** — versionamento e apoio à distribuição de versões
-- **API Pública CNPJ.ws** — fonte dos dados cadastrais consultados
-
----
-
-## 🔐 Segurança e tratamento de dados
-
-Durante o desenvolvimento foram aplicadas práticas como:
-
-- comunicação via HTTPS;
-- validação do CNPJ antes da consulta;
-- configuração de timeout de conexão e leitura;
-- tratamento seguro de exceções;
-- bloqueio de redirecionamentos nas requisições;
-- sanitização e limitação dos dados recebidos;
-- ausência de armazenamento permanente do histórico de consultas;
-- verificação de integridade dos arquivos de atualização com SHA-256.
-
----
-
-## 📊 Fonte dos dados
-
-As informações empresariais exibidas pela aplicação são obtidas através da **API Pública CNPJ.ws**.
-
-Este projeto:
-
-- não possui vínculo oficial com o CNPJ.ws;
-- não representa o CNPJ.ws;
-- utiliza os dados disponibilizados pela API pública;
-- não comercializa nem revende as informações consultadas.
-
-A interface gráfica, identidade visual, estrutura da aplicação e implementação da integração foram desenvolvidas por **Luis Felipe Prieto**.
-
----
-
-## 🖥 Resultado
-
-O projeto foi transformado em uma aplicação desktop para Windows contendo:
-
-- interface gráfica em tema escuro;
-- identidade visual própria;
-- executável `.exe`;
-- instalador personalizado;
+- executável gerado com PyInstaller;
+- instalador criado com Inno Setup;
 - atalho na Área de Trabalho;
 - desinstalador;
-- launcher próprio;
-- controle de versão;
-- sistema de atualização;
-- validação SHA-256 dos arquivos de atualização.
+- launcher próprio para abrir o programa e verificar atualizações.
 
 ![Atalho do programa no Windows](docs/atalho-programa.png)
 
----
+## Launcher e atualizações
 
-## 📚 Aprendizados
+O launcher foi uma das últimas partes que adicionei ao projeto.
 
-Durante o desenvolvimento deste projeto trabalhei e estudei conceitos relacionados a:
+Ele verifica qual versão está instalada e consulta se existe uma versão mais nova disponível. Quando há atualização, o próprio launcher pode baixar o novo instalador e iniciar o processo de atualização.
 
-- consumo de APIs REST;
-- tratamento de respostas JSON;
-- criação de interfaces desktop com CustomTkinter;
+Antes da instalação, o arquivo baixado é validado usando **SHA-256**.
+
+As versões usadas pelo sistema de atualização ficam em ambiente privado. Por isso, detalhes de autenticação e credenciais não são expostos neste repositório.
+
+![Launcher e sistema de atualizações](docs/launcher.png)
+
+## Tecnologias e ferramentas
+
+- Python
+- CustomTkinter
+- Requests
+- Pillow
+- ReportLab
+- PyInstaller
+- Inno Setup
+- GitHub
+- API Pública CNPJ.ws
+
+## Segurança e tratamento de dados
+
+Alguns cuidados que implementei durante o desenvolvimento:
+
+- comunicação via HTTPS;
+- validação do CNPJ antes da requisição;
+- timeout de conexão e leitura;
+- tratamento de exceções;
+- bloqueio de redirecionamentos;
+- sanitização dos dados recebidos;
+- ausência de histórico permanente;
+- validação SHA-256 nos arquivos de atualização.
+
+## Fonte dos dados
+
+As informações exibidas pelo programa são obtidas através da **API Pública CNPJ.ws**.
+
+O projeto não possui vínculo oficial com o CNPJ.ws e não representa a plataforma.
+
+A aplicação, a interface, a identidade visual e a integração com a API foram desenvolvidas por mim como parte dos meus estudos.
+
+## O que estudei com este projeto
+
+Esse projeto acabou sendo útil para praticar várias partes diferentes do desenvolvimento, entre elas:
+
+- consumo de API REST;
+- tratamento de JSON;
+- criação de interface desktop;
 - organização de código em módulos;
 - requisições em segundo plano;
-- validação e tratamento de dados;
-- geração de documentos PDF;
-- exportação de informações em TXT;
+- geração de PDF;
+- exportação de arquivos;
 - empacotamento de aplicações Python;
-- criação de instaladores para Windows;
-- versionamento de aplicações;
+- criação de instalador para Windows;
+- versionamento;
 - criação de launcher;
-- verificação e download de novas versões;
-- validação de integridade com SHA-256;
-- distribuição e atualização de software;
-- identidade visual aplicada a software.
+- download e validação de atualizações;
+- distribuição de software.
+
+## Objetivo
+
+Este é um **projeto de estudos e portfólio**.
+
+A ideia é continuar evoluindo o programa conforme eu for aprendendo novas coisas e encontrando pontos que façam sentido melhorar.
+
+## Autor
+
+**Luis Felipe Prieto**  
+Prieto Soluções em Informática
 
 ---
 
-## 👨‍💻 Autor
-
-Desenvolvido por **Luis Felipe Prieto**  
-**Prieto Soluções em Informática**
-
----
-
-## ⚠️ Aviso
-
-Este projeto foi desenvolvido exclusivamente para fins de **estudo, portfólio e demonstração técnica**.
-
-O código-fonte completo, o executável, o instalador e os componentes privados utilizados na distribuição das atualizações não são disponibilizados neste repositório público.
-
-O projeto **não possui finalidade comercial**, **não comercializa dados**, **não revende informações obtidas pela API** e **não possui vínculo oficial com o CNPJ.ws**.
-
-Todos os nomes, marcas e dados pertencem aos seus respectivos titulares.
-
----
-
-<div align="center">
-
-**Desenvolvido com ❤️ por Luis Felipe Prieto**
-
-</div>
+Os nomes, marcas e dados exibidos nas demonstrações pertencem aos seus respectivos titulares.
